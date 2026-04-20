@@ -10,3 +10,11 @@ unsigned char inb(unsigned short port) {
     return ret;
 
 }
+
+void outb(unsigned short port, unsigned char value) {
+    asm volatile("outb %0, %1" : : "a" (value), "Nd" (port));
+}
+
+void outw(unsigned short port, unsigned short value) {
+    asm volatile("outw %0, %1" : : "a" (value), "Nd" (port));
+}

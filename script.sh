@@ -13,7 +13,7 @@ done
 
 ld -m elf_i386 -o kernel.bin -T linker.ld --oformat binary ./build/*.o -no-pie
 
-echo "Creating image..."
+echo "Creating image (2880 sectors)..."
 dd if=/dev/zero of=os.img bs=512 count=2880
 dd if=boot.bin of=os.img conv=notrunc
 dd if=kernel.bin of=os.img bs=512 seek=1 conv=notrunc

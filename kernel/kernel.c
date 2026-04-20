@@ -2,22 +2,32 @@
 
 #include "print.h"
 #include "keyboard.h"
-
+#include "disk.h"
 
 void kernel_main() {
 
 	print(0, 'B');
-	print(2, 'O');
-	print(4, 'B');
-	print(6, 'E');
-	print(8, 'R');
+	print(1, 'O');
+	print(2, 'B');
+	print(3, 'E');
+	print(4, 'R');
 
-	int index = 8;
+	short data[256];
+
+	for(int i = 0; i < 256; i++) {
+        data[i] = 0x4241;
+    }
+
+	write_sector(50, data);
+
+	int index = 4;
 
 	while(1) {
 		char c = keyboard_read_ascii();
-		index += 2;
-		print(index, c);
+		if(c == 0) {
+			continue;
+		}
+		print(++index, c);
 	}
 
 }

@@ -5,6 +5,6 @@ void print(int position, char character) {
 
     volatile char* vga = VGA_MEMORY;
 
-    vga[position] = character;
+    vga[position * 2] = character;
 
 }
