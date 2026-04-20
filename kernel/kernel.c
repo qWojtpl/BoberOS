@@ -12,15 +12,18 @@ void kernel_main() {
 	print(3, 'E');
 	print(4, 'R');
 
+	int index = 4;
+
 	short data[256];
 
+	read_sector(50, data);
+
 	for(int i = 0; i < 256; i++) {
-        data[i] = 0x4241;
+		print(++index, data[i]);
+        data[i] = 0x4142;
     }
 
 	write_sector(50, data);
-
-	int index = 4;
 
 	while(1) {
 		char c = keyboard_read_ascii();
