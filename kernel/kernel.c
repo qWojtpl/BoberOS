@@ -1,6 +1,7 @@
 
 
 #include "print.h"
+#include "keyboard.h"
 
 
 void kernel_main() {
@@ -11,7 +12,13 @@ void kernel_main() {
 	print(6, 'E');
 	print(8, 'R');
 
-	while(1) { }
+	int index = 8;
+
+	while(1) {
+		char c = keyboard_read_ascii();
+		index += 2;
+		print(index, c);
+	}
 
 }
 

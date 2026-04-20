@@ -1,2 +1,3 @@
 *.vdi
 build/*
+.vscode/*

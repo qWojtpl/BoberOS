@@ -8,4 +8,3 @@ void print(int position, char character) {
     vga[position] = character;
 
 }
-
