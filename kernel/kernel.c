@@ -3,6 +3,8 @@
 #include "print.h"
 #include "keyboard.h"
 #include "disk.h"
+#include "fs.h"
+#include <stdbool.h>
 
 void kernel_main() {
 
@@ -13,17 +15,20 @@ void kernel_main() {
 	print(4, 'R');
 
 	int index = 4;
+	
+	char free = get_free_record();
+	print(++index, free);
+	
+	fcreate("test.txt");
 
-	short data[256];
+	char data[512];
 
-	read_sector(50, data);
+	read_record(0, data);
 
-	for(int i = 0; i < 256; i++) {
+	for(int i = 0; i < 512; i++) {
 		print(++index, data[i]);
-        data[i] = 0x4142;
-    }
+	}
 
-	write_sector(50, data);
 
 	while(1) {
 		char c = keyboard_read_ascii();

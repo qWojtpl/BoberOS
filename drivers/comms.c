@@ -1,6 +1,7 @@
 
 #include "comms.h"
 
+// 8 bits
 unsigned char inb(unsigned short port) {
 
     unsigned char ret;
@@ -11,6 +12,7 @@ unsigned char inb(unsigned short port) {
 
 }
 
+// 16 bits
 unsigned short inw(unsigned short port) {
     
     unsigned short ret;
