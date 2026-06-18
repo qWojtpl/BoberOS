@@ -21,6 +21,12 @@ void kernel_main() {
 	
 	fcreate("test.txt");
 
+	free = get_free_record();
+	print(++index, free);
+
+	fcreate("/system/users");
+	fwrite("/system/users", "bober:$fr9eau8ra98t");
+
 	char data[512];
 
 	read_record(0, data);
