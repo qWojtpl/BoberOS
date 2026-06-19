@@ -4,6 +4,7 @@
 #include "keyboard.h"
 #include "disk.h"
 #include "fs.h"
+#include "fs_util.h"
 #include <stdbool.h>
 
 void kernel_main() {
